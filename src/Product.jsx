@@ -1,6 +1,26 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+
 const Product = ({product}) => {
+
+const navigate = useNavigate()
+
+
+
+    const handleClick = () => {
+const user = false;
+if(user ){
+    navigate(`/products/${id}`)
+}
+else{
+    navigate(`/`)
+}
+    }
+
+
+
+    
     const { id, title,images,rating, price,   } = product;
     return (
         <div >
@@ -33,6 +53,7 @@ const Product = ({product}) => {
         </div>
        <p>{price}</p>
        <Link  to = {`/products/${id}`} className='bg-blue-300 p-2 rounded-lg mt-4 flex justify-center'>Details</Link>
+       <button onClick={handleClick} className='bg-pink-200 p-2 rounded-lg mt-2  w-full'>Details btn</button>
     </div>
 </div>
 
